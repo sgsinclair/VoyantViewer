@@ -23,7 +23,7 @@ function voyant_viewer_display($items = null) {
     $voyantInputUrl = 'http://voyeurtools.org/tool/Cirrus/?'.$voyantInputString;
 
 
-    $html = '<iframe src="'.$voyantInputUrl.'" id="voyant-viewer" width="400px" height="400px"></iframe>';
+    $html = '<iframe src="'.urlencode($voyantInputUrl).'" id="voyant-viewer" width="400px" height="400px"></iframe>';
   }
 
   return $html;

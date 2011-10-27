@@ -16,12 +16,13 @@ function voyant_viewer_display($items = null) {
 
     }
 
-    $voyantInputParams = array('input' => $itemUrls);
+    $voyantInputParams = array('input' => $itemUrls, 'stopList' => 'stop.en.taporware.txt');
 
     $voyantInputString = http_build_query($voyantInputParams, '', '&amp;');
 
-    $voyantInputUrl = 'http://voyeurtools.org/tool/Cirrus/?'.$voyantInputString;
-
+    $voyantInputUrl = urldecode('http://voyeurtools.org/tool/Cirrus/?'.$voyantInputString);
+    $voyantInputUrl = preg_replace("/\[\d+\]/", '', $voyantInputUrl);
+ 
     $html = '<iframe src="'.$voyantInputUrl.'" id="voyant-viewer" width="400px" height="400px"></iframe>';
   }
 

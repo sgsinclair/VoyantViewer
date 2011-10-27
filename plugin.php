@@ -18,7 +18,7 @@ function voyant_viewer_display($items = null) {
 
     $voyantInputParams = array('input' => $itemUrls);
 
-    $voyantInputString = http_build_query($voyantInputParams);
+    $voyantInputString = http_build_query($voyantInputParams, '', '&amp;');
 
     $voyantInputUrl = 'http://voyeurtools.org/tool/Cirrus/?'.$voyantInputString;
 
